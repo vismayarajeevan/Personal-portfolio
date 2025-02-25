@@ -201,11 +201,11 @@
               <h4>About me</h4>
               
               <p>
-                I’m Vismaya Rajeevan, a passionate web developer from Kerala with a background in Electrical and Electronics Engineering. My tech journey began when I built a website for my brother’s educational consultancy, sparking my interest in web development. This led me to explore React and the MERN stack through self-learning and mentorship from industry professionals.
+                I’m a Full Stack Developer with expertise in React, Node.js, MongoDB, Express, Redux, and JavaScript, passionate about crafting scalable, high-performance web applications. Specializing in the MERN stack, I thrive on transforming ideas into user-friendly, dynamic experiences that seamlessly integrate both front-end and back-end functionalities.
               </p>
-              <p>
+              <!-- <p>
                 I’ve since built dynamic, responsive web applications, refining my skills in full-stack development. My short-term goal is to deepen my MERN expertise, and in the long run, I aspire to contribute and grow with an innovative company, building impactful digital solutions.
-              </p>
+              </p> -->
            
             </div>
           </div>
@@ -616,7 +616,7 @@
           </div>
         </div>
 
-        <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+        <!-- <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
           <div class="row gy-4">
         
             <div class="col-md-6">
@@ -645,9 +645,41 @@
         
           </div>
         </form>
+         -->
+        <!-- Include EmailJS Library -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script src="contact.js"></script> Link to external JavaScript file -->
         
-    
-        
+
+        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+          <div class="row gy-4">
+
+            <div class="col-md-6">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+            </div>
+
+            <div class="col-md-6 ">
+              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+            </div>
+
+            <div class="col-md-12">
+              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+            </div>
+
+            <div class="col-md-12">
+              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+
+              <button type="submit">Send Message</button>
+            </div>
+
+          </div>
+        </form>End Contact Form
 
       </div>
 
@@ -698,9 +730,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-    <!-- Include EmailJS Library -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="contact.js"></script> <!-- Link to external JavaScript file -->
+
 </body>
 
 </html>
