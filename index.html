@@ -34,6 +34,30 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+
+<script type="text/javascript">
+  (function () {
+    emailjs.init("5rhT_A3RAKx_PhhWE"); // Replace with your actual public key
+  })();
+</script>
+
+<!-- <script type="text/javascript">
+(function(){
+  emailjs.init("5rhT_A3RAKx_PhhWE");
+// emailjs.init({
+//   publicKey: "5rhT_A3RAKx_PhhWE",
+// });
+})();
+</script> -->
+
+
+
+
 </head>
 
 <body class="index-page">
@@ -602,7 +626,7 @@
           </div>
         </div>
 
-       <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+       <!-- <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
           <div class="row gy-4">
         
             <div class="col-md-6">
@@ -626,14 +650,35 @@
               <div class="error-message" style="display: none; color: red;"></div>
               <div class="sent-message" style="display: none; color: green;">Your message has been sent. Thank you!</div>
         
-              <button type="submit">Send Message</button>
+              <button type="submit" onclick="sendMail()">Send Message</button>
             </div>
         
           </div>
-        </form> 
+        </form>  -->
      
        
-        
+        <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="300" >
+          <div class="row gy-4">
+            <div class="col-md-6">
+              <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-6">
+              <input type="email" name="email" id="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="col-md-12">
+              <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject" required>
+            </div>
+            <div class="col-md-12">
+              <textarea name="message" id="message" class="form-control" rows="6" placeholder="Message" required></textarea>
+            </div>
+            <div class="col-md-12 text-center">
+              <div class="loading" style="display: none;">Loading...</div>
+              <div class="error-message" style="display: none; color: red;"></div>
+              <div class="sent-message" style="display: none; color: green;">Your message has been sent. Thank you!</div>
+              <button type="submit" onclick="sendMail(event)">Send Message</button>
+            </div>
+          </div>
+        </form>
 
       
 
@@ -687,8 +732,28 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script src="contact.js"></script> 
+   <script>
+    function sendMail(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      let parms = {
+        from_name: document.getElementById('name').value,
+        email_id: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+      };
+
+      emailjs.send("service_wcqnrs3", "template_fdpf66d", parms)
+        .then(function (response) {
+          console.log("Email sent successfully!", response);
+          alert("Email sent successfully!!");
+          document.getElementById("contact-form").reset(); // Reset the form
+        }, function (error) {
+          console.error("Failed to send email.", error);
+          alert("Failed to send email. Please try again.");
+        });
+    }
+  </script>
 </body>
 
 </html>
